@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import 'rxjs/Rx';
+import { flatMap } from 'rxjs/operators';
+import * as _ from 'lodash';
 
 import { Amiibo } from '../../models/amiibo.model';
 import { AmiiboService } from '../../services/amiibo.service';
@@ -13,20 +14,26 @@ export class AmiiboListComponent implements OnInit {
 
   public amiibos = [];
   public serieImage = '';
+  public series = [];
 
   constructor(private amiiboService: AmiiboService) { }
 
   ngOnInit() {
 
     this.amiiboService.getAmiibos()
-      .subscribe(data => { this.amiibos.push(data); },
-                 null,
-                 () => { this.amiibos = this.amiibos[0]; });
+      .subscribe(data => { this.amiibos.push(data); });
+
+    this.amiiboService.getSeries()
+      .subscribe(data => { this.series.push(data); });
+
   }
 
   setOwn(amiibo: any) {
     this.amiiboService.setOwn(amiibo._id)
      .subscribe(null, null, () => amiibo.own = !amiibo.own);
+  }
+
+  filterBySerie(serie) {
   }
 
   getImageSerie(serie: string): string {

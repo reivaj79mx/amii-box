@@ -1,3 +1,13 @@
+<mat-toolbar>
+  <!--<mat-form-field>-->
+    <mat-select placeholder="Series">
+      <mat-option *ngFor="let serie of series" [value]="serie" (click)="filterBySerie(serie)">
+        {{ serie }}
+      </mat-option>
+    </mat-select>
+  <!--</mat-form-field>-->
+</mat-toolbar>
+
 <div class="container">
   <div class="list-container">
     <div *ngFor="let amiibo of amiibos">
@@ -13,7 +23,7 @@
         </mat-card-header>
         <img [ngClass]="amiibo.own ? '' : 'no-own'" mat-card-image src="../../../assets/images/amiibos/{{ amiibo.image }}">
         <mat-card-actions>
-          <button *ngIf="!amiibo.own" mat-icon-button color="primary" (click)="toggleOwn(amiibo)">
+          <button *ngIf="!amiibo.own" mat-icon-button color="primary" (click)="setOwn(amiibo)">
             <mat-icon>done_all</mat-icon>
           </button>
           <button *ngIf="amiibo.own" mat-icon-button color="warn" (click)="setOwn(amiibo)">
