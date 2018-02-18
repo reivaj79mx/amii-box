@@ -12,7 +12,7 @@ import { AmiiboService } from '../../services/amiibo.service';
 })
 export class AmiiboListComponent implements OnInit {
 
-  public amiibos = [];
+  public amiibos: Amiibo[] = [];
   public serieImage = '';
   public series = [];
 
@@ -21,10 +21,10 @@ export class AmiiboListComponent implements OnInit {
   ngOnInit() {
 
     this.amiiboService.getAmiibos()
-      .subscribe(data => { this.amiibos.push(data); });
+      .subscribe((amiibo: Amiibo) => { this.amiibos.push(amiibo); });
 
     this.amiiboService.getSeries()
-      .subscribe(data => { this.series.push(data); });
+      .subscribe((serie: string) => { this.series.push(serie); });
 
   }
 

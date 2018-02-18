@@ -1,6 +1,6 @@
 <mat-toolbar>
   <!--<mat-form-field>-->
-    <mat-select placeholder="Series">
+    <mat-select placeholder="Series" #srs>
       <mat-option *ngFor="let serie of series" [value]="serie" (click)="filterBySerie(serie)">
         {{ serie }}
       </mat-option>
@@ -10,7 +10,7 @@
 
 <div class="container">
   <div class="list-container">
-    <div *ngFor="let amiibo of amiibos">
+    <div *ngFor="let amiibo of amiibos | filter: srs.value">
       <mat-card>
         <mat-card-header>
           <div mat-card-avatar [ngClass]="getImageSerie(amiibo.serie)"></div>

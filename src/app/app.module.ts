@@ -12,11 +12,13 @@ import { AmiiboListComponent } from './components/amiibo-list/amiibo-list.compon
 
 // services
 import { AmiiboService } from './services/amiibo.service';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AmiiboListComponent
+    AmiiboListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
