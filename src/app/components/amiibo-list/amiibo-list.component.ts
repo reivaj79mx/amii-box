@@ -15,6 +15,8 @@ export class AmiiboListComponent implements OnInit {
   public amiibos: Amiibo[] = [];
   public serieImage = '';
   public series = [];
+  public by = 'date';
+  public ascDesc = 'desc';
 
   constructor(private amiiboService: AmiiboService) { }
 
@@ -33,7 +35,8 @@ export class AmiiboListComponent implements OnInit {
      .subscribe(null, null, () => amiibo.own = !amiibo.own);
   }
 
-  filterBySerie(serie) {
+  orderBy() {
+    this.amiibos = _.orderBy(this.amiibos, [this.by], [this.ascDesc]);
   }
 
   getImageSerie(serie: string): string {

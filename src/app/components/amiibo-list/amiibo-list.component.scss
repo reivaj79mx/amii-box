@@ -1,5 +1,5 @@
 .container {
-  height: calc(100% - 84px); // 84px = alto del toolbar
+  height: calc(100% - 160px); // 84px = alto del toolbar
   overflow: auto;
   padding: 10px;
 }
@@ -13,7 +13,7 @@
 .list-container {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
   img {
     background-color: whitesmoke;
@@ -127,6 +127,36 @@
 
     &:hover {
       opacity: 1;
+    }
+  }
+}
+
+/**
+toolbar de filtros
+*/
+.filter-toolbar {
+  font-size: 12pt;
+
+  .select-series {
+    margin-right: 20px;
+  }
+
+  .select-order {
+    margin-right: 20px;
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+
+  .asc-desc {
+    .desc {
+      margin-right: 15px;
+    }
+
+    .icon {
+      display: inline-flex;
+      vertical-align: middle;
     }
   }
 }

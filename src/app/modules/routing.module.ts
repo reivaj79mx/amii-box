@@ -4,7 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AmiiboListComponent } from '../components/amiibo-list/amiibo-list.component';
 
 const routes: Routes = [
-  { path: '', component: AmiiboListComponent }
+  {
+    path: '',
+    component: AmiiboListComponent
+  }
 ];
 
 @NgModule({

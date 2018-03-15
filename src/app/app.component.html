@@ -6,6 +6,10 @@
       <mat-toolbar color="accent">
         <mat-icon class="hamburger" (click)="sidenav.toggle()">menu</mat-icon>
         <span>&nbsp;&nbsp;Amii-box</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="openAddAmiiboModal()">
+          <mat-icon>add</mat-icon>
+        </button>
       </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>

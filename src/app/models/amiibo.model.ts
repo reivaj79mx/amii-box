@@ -13,5 +13,4 @@ export class Amiibo {
   image: string;
   date: Date;
   own: boolean;
-
 }

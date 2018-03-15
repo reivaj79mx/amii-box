@@ -1,11 +1,39 @@
-<mat-toolbar>
-  <!--<mat-form-field>-->
-    <mat-select placeholder="Series" #srs>
-      <mat-option *ngFor="let serie of series" [value]="serie" (click)="filterBySerie(serie)">
-        {{ serie }}
-      </mat-option>
-    </mat-select>
-  <!--</mat-form-field>-->
+<mat-toolbar class="filter-toolbar">
+  <!-- select serie -->
+  <mat-select placeholder="Series" #srs class="select-series">
+    <mat-option *ngFor="let serie of series" [value]="serie">
+      {{ serie }}
+    </mat-option>
+  </mat-select>
+  <!-- select order by -->
+  <mat-select placeholder="Ordenar por ..." #oby [(ngModel)]="by" (change)="orderBy()" class="select-order">
+    <mat-option value="date">
+      <span>Por fecha</span>
+    </mat-option>
+    <mat-option value="name">
+      Por nombre
+    </mat-option>
+    <mat-option value="serie">
+      Por serie
+    </mat-option>
+  </mat-select>
+  <!-- spacer -->
+  <div class="spacer"></div>
+  <!-- by -->
+  <mat-radio-group [(ngModel)]="ascDesc" (change)="orderBy()" class="asc-desc">
+    <mat-radio-button value="desc" class="desc">
+      <span>
+        <mat-icon class="icon">arrow_downward</mat-icon>
+        <span>Desc</span>
+      </span>
+    </mat-radio-button>
+    <mat-radio-button value="asc">
+      <span>
+        <mat-icon class="icon">arrow_upward</mat-icon>
+        <span>Asc</span>
+      </span>
+    </mat-radio-button>
+  </mat-radio-group>
 </mat-toolbar>
 
 <div class="container">

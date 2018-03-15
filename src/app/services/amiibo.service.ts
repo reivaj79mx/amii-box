@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { flatMap, map } from 'rxjs/operators';
@@ -29,4 +29,7 @@ export class AmiiboService {
       );
   }
 
+  addAmiibo(data: FormData): Observable<any> {
+    return this.http.post('api/amiibo/add_amiibo', data);
+  }
 }

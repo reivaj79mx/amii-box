@@ -12,9 +12,9 @@ export class FilterPipe implements PipeTransform {
       return items;
     }
 
-    const i = items.filter((item: Amiibo) => item.serie === filter);
-    console.log(filter);
-    return i;
+    const result = items.filter((item: Amiibo) => item.serie === filter);
+
+    return result;
   }
 
 }

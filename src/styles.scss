@@ -1,9 +1,9 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-body {
-  margin: 0;
+* {
+  font-family: Roboto;
 }
 
-.hamburger {
-  cursor: pointer;
+body {
+  margin: 0;
 }
