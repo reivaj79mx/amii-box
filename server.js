@@ -19,6 +19,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// statics
+app.use(express.static('server/images'))
+
 // routes
 app.use('/api', routes);
 

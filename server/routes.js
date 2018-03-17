@@ -1,11 +1,22 @@
 const express = require('express');
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
 
 const router = express.Router();
 
 // controllers
 const AmiiboCtrl = require('./controllers/amiibo-controller');
+
+// configurar multer
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'server/images/amiibos');
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    }
+  }) 
+});
 
 // routes
 router.get('/amiibo/get', AmiiboCtrl.GetAll);

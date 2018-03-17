@@ -54,78 +54,78 @@
   }
 
   .SMO {
-    background-image: url('../../../assets/images/series/SMO.png');
+    background-image: url('http://localhost:8080/series/SMO.png');
   }
 
   .SM {
-    background-image: url('../../../assets/images/series/SM.png');
+    background-image: url('http://localhost:8080/series/SM.png');
   }
 
   .SM30A {
-    background-image: url('../../../assets/images/series/SM30A.png');
+    background-image: url('http://localhost:8080/series/SM30A.png');
   }
 
   .SSB {
-    background-image: url('../../../assets/images/series/SSB.png');
+    background-image: url('http://localhost:8080/series/SSB.png');
   }
 
   .YWW {
-    background-image: url('../../../assets/images/series/YWW.png');
+    background-image: url('http://localhost:8080/series/YWW.png');
   }
 
   .AC {
-    background-image: url('../../../assets/images/series/AC.png');
+    background-image: url('http://localhost:8080/series/AC.png');
   }
 
   .TLFZBOTW {
-    background-image: url('../../../assets/images/series/TLFZBOTW.png');
+    background-image: url('http://localhost:8080/series/TLFZBOTW.png');
   }
 
   .SK {
-    background-image: url('../../../assets/images/series/SK.png');
+    background-image: url('http://localhost:8080/series/SK.png');
   }
 
   .TLOZ30A {
-    background-image: url('../../../assets/images/series/TLOZ30A.png');
+    background-image: url('http://localhost:8080/series/TLOZ30A.png');
   }
 
   .SSC {
-    background-image: url('../../../assets/images/series/SSC.png');
+    background-image: url('http://localhost:8080/series/SSC.png');
   }
 
   .FE {
-    background-image: url('../../../assets/images/series/FE.png');
+    background-image: url('http://localhost:8080/series/FE.png');
   }
 
   .S {
-    background-image: url('../../../assets/images/series/S.png');
+    background-image: url('http://localhost:8080/series/S.png');
   }
 
   .CHR {
-    background-image: url('../../../assets/images/series/CHR.png');
+    background-image: url('http://localhost:8080/series/CHR.png');
   }
 
   .K {
-    background-image: url('../../../assets/images/series/K.png');
+    background-image: url('http://localhost:8080/series/K.png');
   }
 
   .TLOZ {
-    background-image: url('../../../assets/images/series/TLOZ.png');
+    background-image: url('http://localhost:8080/series/TLOZ.png');
+  }                                                                                                                                                                             
+
+  .M {                                                                                                                              
+    background-image: url('http://localhost:8080/series/M.png');
   }
 
-  .M {
-    background-image: url('../../../assets/images/series/M.png');
-  }
+  .P {                                                                                                                              
+    background-image: url('http://localhost:8080/series/P.png');
+  }                                                                                                                                   
 
-  .P {
-    background-image: url('../../../assets/images/series/P.png');
-  }
-
-  .no-own {
-    opacity: .2;
+  .no-own {                                                                                                           
+    opacity: .2;                                                                                                              
     transition: linear .2s opacity;
 
-    &:hover {
+    &:hover {                                                                                                                                                                                 
       opacity: 1;
     }
   }

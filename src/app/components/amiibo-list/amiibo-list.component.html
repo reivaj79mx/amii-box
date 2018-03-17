@@ -49,7 +49,7 @@
             {{ amiibo.serie || '---' }}
           </mat-card-subtitle>
         </mat-card-header>
-        <img [ngClass]="amiibo.own ? '' : 'no-own'" mat-card-image src="../../../assets/images/amiibos/{{ amiibo.image }}">
+        <img [ngClass]="amiibo.own ? '' : 'no-own'" mat-card-image src="http://localhost:8080/amiibos/{{ amiibo.image }}">
         <mat-card-actions>
           <button *ngIf="!amiibo.own" mat-icon-button color="primary" (click)="setOwn(amiibo)">
             <mat-icon>done_all</mat-icon>
