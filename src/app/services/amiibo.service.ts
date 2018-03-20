@@ -10,8 +10,16 @@ export class AmiiboService {
 
   constructor(private http: HttpClient) { }
 
+  /** ??? */
   getAmiibos(): Observable<Amiibo> {
     return this.http.get<Amiibo[]>('api/amiibo/get')
+      .pipe(
+        flatMap(amiibo => amiibo)
+      );
+  }
+
+  getAmiibosOwn(): Observable<Amiibo> {
+    return this.http.get<Amiibo[]>('api/amiibo/get_own')
       .pipe(
         flatMap(amiibo => amiibo)
       );
@@ -29,7 +37,7 @@ export class AmiiboService {
       );
   }
 
-  addAmiibo(data: FormData): Observable<any> {
+  addAmiibo(data: FormData) {
     return this.http.post('api/amiibo/add_amiibo', data);
   }
 }

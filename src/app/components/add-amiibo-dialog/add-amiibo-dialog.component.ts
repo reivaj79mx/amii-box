@@ -35,14 +35,22 @@ export class AddAmiiboDialogComponent implements OnInit {
       .subscribe((serie: string) => { this.series.push(serie); });
   }
 
+  /**
+   * Envia la información del Amiibo para agregarlo a la DB
+   */
   addAmiibo() {
     const native = this.image.nativeElement;
 
     if (native.files && native.files[0]) {
       const formData: FormData = new FormData();
-      formData.append('image', native.files[0], native.files[0].name);
-      formData.append('name', 'Amiibo');
-      this.amiiboService.addAmiibo(formData);
+      formData.append('file', native.files[0], native.files[0].name);
+      formData.append('serie', this.nuevo.serie);
+      formData.append('name', this.nuevo.name);
+      formData.append('image', native.files[0].name);
+      formData.append('date', new Date(this.nuevo.date).toISOString());
+      formData.append('own', 'false');
+
+      this.amiiboService.addAmiibo(formData).subscribe();
     }
   }
 

@@ -82,10 +82,35 @@ exports.getSeries = function (req, res) {
 }
 
 /**
+ * Obtiene SOLO los amiibos que estan en la collection
+ * @param {object} req 
+ * @param {object} res 
+ */
+exports.getAmiiboOwn = (req, res) => {
+
+  AmiiboModel.find({ own: true }).then(amiibos => {
+    res.status(200).json(amiibos);
+  }).catch(err => {
+    res.status(500).send('Bad request');
+  });
+
+}
+
+/**
  * Agrega un nuevo Amiibo
  * @param {object} req 
  * @param {object} res 
  */
 exports.addAmiibo = (req, res) => {
-  res.status(200).send(req.file);
+  const amiibo = new AmiiboModel({
+    name: req.body.name,
+    serie: req.body.serie,
+    image: req.body.image,
+    date: new Date(req.body.date),
+    own: req.body.own
+  });
+
+  amiibo.save().then(() => {
+    console.log('Saved!!!');
+  });
 }

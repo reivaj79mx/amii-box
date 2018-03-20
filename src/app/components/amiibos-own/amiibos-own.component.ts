@@ -1,42 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { flatMap } from 'rxjs/operators';
-import * as _ from 'lodash';
 
 import { Amiibo } from '../../models/amiibo.model';
 import { AmiiboService } from '../../services/amiibo.service';
 
 @Component({
-  selector: 'app-amiibo-list',
-  templateUrl: './amiibo-list.component.html',
-  styleUrls: ['./amiibo-list.component.scss']
+  selector: 'app-amiibos-own',
+  templateUrl: './amiibos-own.component.html',
+  styleUrls: ['./amiibos-own.component.scss']
 })
-export class AmiiboListComponent implements OnInit {
+export class AmiibosOwnComponent implements OnInit {
 
-  public amiibos: Amiibo[] = [];
-  public serieImage = '';
-  public series = [];
-  public by = 'date';
-  public ascDesc = 'desc';
+  public owns: Amiibo[] = [];
 
   constructor(private amiiboService: AmiiboService) { }
 
   ngOnInit() {
-
     this.amiiboService.getAmiibosOwn()
-      .subscribe((amiibo: Amiibo) => { this.amiibos.push(amiibo); });
-
-    this.amiiboService.getSeries()
-      .subscribe((serie: string) => { this.series.push(serie); });
-
+      .subscribe((amiibo: Amiibo) => { this.owns.push(amiibo); });
   }
 
   setOwn(amiibo: any) {
     this.amiiboService.setOwn(amiibo._id)
      .subscribe(null, null, () => amiibo.own = !amiibo.own);
-  }
-
-  orderBy() {
-    this.amiibos = _.orderBy(this.amiibos, [this.by], [this.ascDesc]);
   }
 
   getImageSerie(serie: string): string {

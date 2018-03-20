@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AmiiboListComponent } from '../components/amiibo-list/amiibo-list.component';
+import { AmiibosOwnComponent } from '../components/amiibos-own/amiibos-own.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AmiiboListComponent
+    component: AmiibosOwnComponent
   }
 ];
 

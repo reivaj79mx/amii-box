@@ -1,6 +1,19 @@
 <div class="mat-typography">
   <mat-sidenav-container class="wrapper">
-    <mat-sidenav #sidenav mode="over" opened="false" align="end" class="sidenav" fixedInViewport="true">
+    <mat-sidenav #sidenav mode="over" opened="true" align="start" class="sidenav" fixedInViewport="true">
+      <mat-toolbar color="accent">
+        <span>Menú</span>
+      </mat-toolbar>
+      <ul class="menu">
+        <li>
+          <mat-icon>face</mat-icon>
+          <span>Mi colección</span>
+        </li>
+        <li>
+          <mat-icon>insert_chart</mat-icon>
+          <span>Estadísticas</span>
+        </li>
+      </ul>
     </mat-sidenav>
     <mat-sidenav-content class="content">
       <mat-toolbar color="accent">

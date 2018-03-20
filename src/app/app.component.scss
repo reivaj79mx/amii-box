@@ -9,11 +9,39 @@
     width: 350px;
     background-color: #333;
     box-shadow: -3px -3px 20px #555;
+
+    .menu {
+      color: #55eeff;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 20px 0 20px 10px;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+
+        span {
+          margin-left: 15px;
+        }
+
+        &:hover {
+          background-color:black;
+        }
+      }
+    }
   }
 
   .content {
     background-color: black;
     color: white;
+
+    .hamburger {
+      cursor: pointer;
+    }
   }
 }
 

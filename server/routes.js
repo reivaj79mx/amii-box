@@ -23,6 +23,8 @@ router.get('/amiibo/get', AmiiboCtrl.GetAll);
 router.get('/amiibo/get/:id', AmiiboCtrl.GetOne);
 router.put('/amiibo/set_own/:id', AmiiboCtrl.SetOwn);
 router.get('/amiibo/get_series', AmiiboCtrl.getSeries);
-router.post('/amiibo/add_amiibo', upload.single('image'), AmiiboCtrl.addAmiibo);
+router.post('/amiibo/add_amiibo', upload.single('file'), AmiiboCtrl.addAmiibo);
+
+router.get('/amiibo/get_own', AmiiboCtrl.getAmiiboOwn);
 
 module.exports = router;

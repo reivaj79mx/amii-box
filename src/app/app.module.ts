@@ -18,13 +18,17 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortAmiiboPipe } from './pipes/sort-amiibo.pipe';
 import { DateAdapter, MatNativeDateModule } from '@angular/material';
 
+// components
+import { AmiibosOwnComponent } from './components/amiibos-own/amiibos-own.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     AmiiboListComponent,
     FilterPipe,
     SortAmiiboPipe,
-    AddAmiiboDialogComponent
+    AddAmiiboDialogComponent,
+    AmiibosOwnComponent
   ],
   imports: [
     BrowserModule,
