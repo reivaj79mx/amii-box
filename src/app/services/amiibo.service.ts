@@ -1,7 +1,7 @@
 import { Injectable, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { flatMap, map } from 'rxjs/operators';
+import { flatMap, map, groupBy, reduce } from 'rxjs/operators';
 
 import { Amiibo } from '../models/amiibo.model';
 
@@ -18,10 +18,24 @@ export class AmiiboService {
       );
   }
 
-  getAmiibosOwn(): Observable<Amiibo> {
+  /**
+   * Obtiene SOLO los Amiibos que están en la coolección
+   */
+  getAmiibosOwn() {
+
     return this.http.get<Amiibo[]>('api/amiibo/get_own')
       .pipe(
-        flatMap(amiibo => amiibo)
+        flatMap(amiibo => amiibo),
+        groupBy(amiibo => amiibo.serie),
+        flatMap((value, index) => value.pipe(
+          reduce((data: Amiibo[], current: Amiibo) => [...data, ...[current]], [])
+        )),
+        map((value, index) => {
+          return {
+            k: value[0].serie,
+            v: value
+          };
+        })
       );
   }
 

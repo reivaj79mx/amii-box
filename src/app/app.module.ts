@@ -9,7 +9,7 @@ import { RoutingModule } from './modules/routing.module';
 
 // components
 import { AppComponent } from './app.component';
-import { AmiiboListComponent } from './components/amiibo-list/amiibo-list.component';
+import { AmiiboListComponent } from './components/shared/amiibo-list/amiibo-list.component';
 import { AddAmiiboDialogComponent } from './components/add-amiibo-dialog/add-amiibo-dialog.component';
 
 // services

@@ -1,0 +1,105 @@
+mat-expansion-panel {
+  background-color: black;
+  mat-expansion-panel-header {
+    mat-panel-title,
+    mat-panel-description {
+      color: lightskyblue;
+      font-weight: bold;
+    }
+  }
+}
+
+.amiibo-grid {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(6, 1fr);
+  mat-card {
+    mat-card-header {
+      .mat-card-title {
+        margin-bottom: 5px;
+        margin-top: 3px;
+        color: #456;
+        height: 20px;
+        overflow: hidden;
+      }
+      .mat-card-subtitle {
+        height: 20px;
+        overflow: hidden;
+      }
+      [mat-card-avatar] {
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: center;
+        border: solid 1px #ccc;
+        background-color: whitesmoke;
+      }
+    }
+    img {
+      background-color: whitesmoke;
+      margin-bottom: 0;
+    }
+    .mat-card-actions {
+      display: flex;
+      justify-content: flex-end;
+      .no-own {
+        opacity: .2;
+        transition: linear .2s opacity;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.SMO {
+  background-image: url('http://localhost:8080/series/SMO.png');
+}
+.SM {
+  background-image: url('http://localhost:8080/series/SM.png');
+}
+.SM30A {
+  background-image: url('http://localhost:8080/series/SM30A.png');
+}
+.SSB {
+  background-image: url('http://localhost:8080/series/SSB.png');
+}
+.YWW {
+  background-image: url('http://localhost:8080/series/YWW.png');
+}
+.AC {
+  background-image: url('http://localhost:8080/series/AC.png');
+}
+.TLFZBOTW {
+  background-image: url('http://localhost:8080/series/TLFZBOTW.png');
+}
+.SK {
+  background-image: url('http://localhost:8080/series/SK.png');
+}
+.TLOZ30A {
+  background-image: url('http://localhost:8080/series/TLOZ30A.png');
+}
+.SSC {
+  background-image: url('http://localhost:8080/series/SSC.png');
+}
+.FE {
+  background-image: url('http://localhost:8080/series/FE.png');
+}
+.S {
+  background-image: url('http://localhost:8080/series/S.png');
+}
+.CHR {
+  background-image: url('http://localhost:8080/series/CHR.png');
+}
+.K {
+  background-image: url('http://localhost:8080/series/K.png');
+}
+.TLOZ {
+  background-image: url('http://localhost:8080/series/TLOZ.png');
+}
+.M {
+  background-image: url('http://localhost:8080/series/M.png');
+}
+.P {
+  background-image: url('http://localhost:8080/series/P.png');
+}

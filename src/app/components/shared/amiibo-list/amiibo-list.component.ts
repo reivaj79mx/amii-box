@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { flatMap } from 'rxjs/operators';
-import * as _ from 'lodash';
+import { groupBy, reduce, flatMap, map } from 'rxjs/operators';
 
-import { Amiibo } from '../../models/amiibo.model';
-import { AmiiboService } from '../../services/amiibo.service';
+import { Amiibo } from '../../../models/amiibo.model';
+import { AmiiboService } from '../../../services/amiibo.service';
 
 @Component({
   selector: 'app-amiibo-list',
@@ -12,31 +11,27 @@ import { AmiiboService } from '../../services/amiibo.service';
 })
 export class AmiiboListComponent implements OnInit {
 
-  public amiibos: Amiibo[] = [];
-  public serieImage = '';
-  public series = [];
-  public by = 'date';
-  public ascDesc = 'desc';
+  public groups = [];
+  public panelState = true;
 
   constructor(private amiiboService: AmiiboService) { }
 
   ngOnInit() {
 
-    this.amiiboService.getAmiibosOwn()
-      .subscribe((amiibo: Amiibo) => { this.amiibos.push(amiibo); });
+    // al inicio cargar los Amiibos de la colección
+    this.amiiboService.getAmiibosOwn().subscribe({
+      next: next => this.groups.push(next)
+    });
 
-    this.amiiboService.getSeries()
-      .subscribe((serie: string) => { this.series.push(serie); });
+  }
 
+  arrowUpDown() {
+    return (this.panelState) ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
   }
 
   setOwn(amiibo: any) {
     this.amiiboService.setOwn(amiibo._id)
      .subscribe(null, null, () => amiibo.own = !amiibo.own);
-  }
-
-  orderBy() {
-    this.amiibos = _.orderBy(this.amiibos, [this.by], [this.ascDesc]);
   }
 
   getImageSerie(serie: string): string {
@@ -60,4 +55,5 @@ export class AmiiboListComponent implements OnInit {
       case 'Pikmin': return 'P';
     }
   }
+
 }

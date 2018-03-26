@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { groupBy, reduce, flatMap, map } from 'rxjs/operators';
 
 import { Amiibo } from '../../models/amiibo.model';
 import { AmiiboService } from '../../services/amiibo.service';
@@ -10,13 +11,19 @@ import { AmiiboService } from '../../services/amiibo.service';
 })
 export class AmiibosOwnComponent implements OnInit {
 
-  public owns: Amiibo[] = [];
+  public owns = [];
+  public groups: any;
 
   constructor(private amiiboService: AmiiboService) { }
 
   ngOnInit() {
-    this.amiiboService.getAmiibosOwn()
-      .subscribe((amiibo: Amiibo) => { this.owns.push(amiibo); });
+
+    // al inicio cargar los Amiibos de la colección
+    this.amiiboService.getAmiibosOwn().subscribe({
+      next: next => this.owns.push(next),
+      complete: () => console.log(this.owns)
+    });
+
   }
 
   setOwn(amiibo: any) {
